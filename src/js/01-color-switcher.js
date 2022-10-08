@@ -15,6 +15,7 @@ function onBtnStartClick() {
   timerId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
   }, COLOR_DELAY);
+  console.log(timerId);
 }
 
 function onBtnStopClick() {
