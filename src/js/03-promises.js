@@ -10,6 +10,10 @@ function onFormSubmit(e) {
   const delayStep = e.currentTarget.step.valueAsNumber;
   const amountOfPromise = e.currentTarget.amount.valueAsNumber;
 
+  if (delayCurr < 0 || delayStep < 0) {
+    return alert('Number should be more than zero!!!!');
+  }
+
   for (let position = 1; position <= amountOfPromise; position += 1) {
     createPromise(position, delayCurr);
     delayCurr += delayStep;
@@ -19,7 +23,6 @@ function onFormSubmit(e) {
 function createPromise(position, delay) {
   const promise = new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
-
     setTimeout(() => {
       if (shouldResolve) {
         resolve({ position, delay });
